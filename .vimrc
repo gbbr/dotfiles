@@ -27,6 +27,14 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 "
+" Ctrlp
+"
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
+
+"
 " StatusBar (Airline)
 "
 let g:airline#extensions#tabline#enabled = 1
