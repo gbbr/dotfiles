@@ -24,8 +24,8 @@ set number
 "
 set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "
 " StatusBar (Airline)
