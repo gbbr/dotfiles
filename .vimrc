@@ -24,6 +24,7 @@ set number
 "
 set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
+let g:go_fmt_command = "goimports"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
