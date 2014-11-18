@@ -23,8 +23,10 @@ set number
 " Autocomplete (SuperTab)
 "
 set completeopt=longest,menuone
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:neocomplete#enable_at_startup = 1
+let g:go_fmt_command = "goimports"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "
 " StatusBar (Airline)
