@@ -18,6 +18,7 @@ set number
 
 " Search highlight
 set hlsearch
+set incsearch
 nmap <silent> <C-h> :silent noh<CR>
 
 " Autocomplete (SuperTab)
