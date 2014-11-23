@@ -17,11 +17,11 @@ set cursorline
 set number
 
 " Search highlight
-set hlsearch
+"set hlsearch
+"nmap <silent> <C-h> :silent noh<CR>
 set incsearch
 set ignorecase
 set smartcase
-nmap <silent> <C-h> :silent noh<CR>
 
 " Autocomplete (SuperTab)
 set completeopt=longest,menuone
