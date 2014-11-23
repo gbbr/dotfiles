@@ -1,8 +1,9 @@
 execute pathogen#infect()
+let mapleader = ","
 
 " Auto-indentation (gofmt, etc)
 filetype indent plugin on
-let mapleader = ","
+let g:go_fmt_command = "goimports"
 
 " Resize splits
 noremap <Right> <C-w>10<
@@ -24,7 +25,6 @@ set smartcase
 " Autocomplete (SuperTab)
 set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
-let g:go_fmt_command = "goimports"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
