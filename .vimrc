@@ -19,6 +19,8 @@ set number
 " Search highlight
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 nmap <silent> <C-h> :silent noh<CR>
 
 " Autocomplete (SuperTab)
