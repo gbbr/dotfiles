@@ -16,9 +16,7 @@ colorscheme apprentice
 set cursorline
 set number
 
-" Search highlight
-"set hlsearch
-"nmap <silent> <C-h> :silent noh<CR>
+" Search settings
 set incsearch
 set ignorecase
 set smartcase
