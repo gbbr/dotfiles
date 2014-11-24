@@ -21,6 +21,7 @@ set number
 set incsearch
 set ignorecase
 set smartcase
+nnoremap <silent> <c-h> :set hlsearch!<CR>
 
 " Autocomplete (SuperTab)
 set completeopt=longest,menuone
