@@ -1,9 +1,10 @@
 execute pathogen#infect()
 let mapleader = ","
 
-" Auto-indentation (gofmt, etc)
+" Auto-indentation 
 filetype indent plugin on
 let g:go_fmt_command = "goimports"
+inoremap {<CR>  {<CR>}<Esc>O}
 
 " Resize splits
 noremap <Right> <C-w>10<
