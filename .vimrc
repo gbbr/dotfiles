@@ -18,6 +18,9 @@ syntax on
 colorscheme apprentice
 set cursorline
 set number
+" Colorcolumn
+nnoremap <leader>8 :set colorcolumn=80<CR>
+nnoremap <leader>0 :set colorcolumn=0<CR>
 
 " Search settings
 set incsearch
