@@ -18,6 +18,9 @@ syntax on
 colorscheme apprentice
 set cursorline
 set number
+" StatusBar (Airline)
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 " Colorcolumn Toggle
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
@@ -41,10 +44,6 @@ let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" StatusBar (Airline)
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
-
 " EasyMotion
 nmap s <Plug>(easymotion-s)
 
@@ -61,4 +60,3 @@ set shiftwidth=4
 
 " File types
 autocmd BufEnter *.json set filetype=javascript
-
