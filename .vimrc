@@ -21,6 +21,7 @@ syntax on
 colorscheme apprentice
 set cursorline
 set number
+set scrolloff=1
 " StatusBar (Airline)
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
