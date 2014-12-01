@@ -12,6 +12,8 @@ noremap <Right> <C-w>10<
 noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
+" Split positions
+set splitright
 " Copy to clipboard
 vnoremap <C-c> "*y
 vnoremap <C-x> "*d
@@ -22,6 +24,7 @@ colorscheme apprentice
 set cursorline
 set number
 set scrolloff=1
+set nowrap
 " StatusBar (Airline)
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
