@@ -12,7 +12,7 @@ noremap <Right> <C-w>10<
 noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
-" Split positions
+" Vertical split always right
 set splitright
 " Copy to clipboard
 vnoremap <C-c> "*y
