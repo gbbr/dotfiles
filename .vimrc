@@ -12,6 +12,9 @@ noremap <Right> <C-w>10<
 noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
+" Copy to clipboard
+vnoremap <C-c> "*y
+vnoremap <C-x> "*d
 
 " Theme
 syntax on
