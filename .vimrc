@@ -14,6 +14,7 @@ noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
 " Vertical split always right
 set splitright
+set splitbelow
 " Copy to clipboard
 vnoremap <C-c> "*y
 vnoremap <C-x> "*d
