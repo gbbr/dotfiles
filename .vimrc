@@ -26,6 +26,7 @@ set cursorline
 set number
 set scrolloff=1
 set nowrap
+nnoremap <silent> <leader>w :set nowrap!<cr>
 " StatusBar (Airline)
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
