@@ -3,7 +3,6 @@ let mapleader = ","
 
 " Auto-indentation 
 filetype indent plugin on
-let g:go_fmt_command = "goimports"
 " Auto-closing braces
 inoremap {<CR>  {<CR>}<Esc>O
 
@@ -69,3 +68,7 @@ set shiftwidth=4
 
 " File types
 autocmd BufEnter *.json set filetype=javascript
+
+" Go specific
+g:godef_split=3
+let g:go_fmt_command = "goimports"
