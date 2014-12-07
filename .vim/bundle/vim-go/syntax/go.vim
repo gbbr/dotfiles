@@ -112,6 +112,10 @@ syn keyword     goConstants         iota true false nil
 hi def link     goBuiltins          Keyword
 hi def link     goConstants         Keyword
 
+" GoGo
+syn keyword     goGO                go
+hi def link     goGO                Keyword
+
 " Comments; their contents
 syn keyword     goTodo              contained TODO FIXME XXX BUG
 syn cluster     goCommentGroup      contains=goTodo
