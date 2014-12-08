@@ -3,6 +3,7 @@ let mapleader = ","
 
 " Auto-indentation 
 filetype indent plugin on
+
 " Auto-closing braces
 inoremap {<CR>  {<CR>}<Esc>O
 
@@ -11,9 +12,11 @@ noremap <Right> <C-w>10<
 noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
+
 " Vertical split always right
 set splitright
 set splitbelow
+
 " Copy to clipboard
 vnoremap <C-c> "*y
 vnoremap <C-x> "*d
@@ -25,13 +28,10 @@ set cursorline
 set number
 set scrolloff=1
 set nowrap
-nnoremap <silent> <leader>w :set nowrap!<cr>
 nnoremap <leader>s :set spell!<cr>
-" StatusBar (Airline)
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
 
-" Colorcolumn Toggle
+" Columns and wrapping
+nnoremap <silent> <leader>w :set nowrap!<cr>
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
 function! g:ToggleColorColumn()
 	if &colorcolumn != ''
@@ -47,20 +47,6 @@ set ignorecase
 set smartcase
 nnoremap <silent> <c-h> :set hlsearch!<CR>
 
-" Autocomplete (SuperTab)
-set completeopt=longest,menuone
-let g:neocomplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" EasyMotion
-nmap s <Plug>(easymotion-s)
-
-" NerdTree
-nmap <leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen=1
-
 " Tabs and spaces
 nmap <leader>l :set list!<CR>
 set listchars=tab:\|-\,eol:¬,trail:·,nbsp:·
@@ -72,9 +58,35 @@ autocmd BufEnter *.json set filetype=javascript
 
 " Show current file as HTML (to paste into Keynote)
 nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+
+" --------------------------------------------------------------
+"  Plugins
+" --------------------------------------------------------------
+
+" SuperTab / NeoComplete
+set completeopt=longest,menuone
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" StatusBar (Airline)
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
+
+" EasyMotion
+nmap s <Plug>(easymotion-s)
+
+" NerdTree
+nmap <leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
+
+" CtrlP
 nmap <Leader>m :CtrlPMRU<CR>
 
-" Go specific
+" --------------------------------------------------------------
+"  Go Specific
+" --------------------------------------------------------------
 let g:godef_split=3 " 0 - current window, 2 - tab, 3 - vertical split
 let g:godef_same_file_in_same_window=1
 let g:go_fmt_command = "goimports"
