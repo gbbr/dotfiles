@@ -71,5 +71,6 @@ set shiftwidth=4
 autocmd BufEnter *.json set filetype=javascript
 
 " Go specific
-let g:godef_split=3
+let g:godef_split=3 " 0 - current window, 2 - tab
+let g:godef_same_file_in_same_window=1
 let g:go_fmt_command = "goimports"
