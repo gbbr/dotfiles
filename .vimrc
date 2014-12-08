@@ -70,6 +70,10 @@ set shiftwidth=4
 " File types
 autocmd BufEnter *.json set filetype=javascript
 
+" Show current file as HTML (to paste into Keynote)
+nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+nmap <Leader>r :CtrlPMRU<CR>
+
 " Go specific
 let g:godef_split=3 " 0 - current window, 2 - tab
 let g:godef_same_file_in_same_window=1
