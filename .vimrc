@@ -75,7 +75,7 @@ nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 nmap <Leader>m :CtrlPMRU<CR>
 
 " Go specific
-let g:godef_split=3 " 0 - current window, 2 - tab
+let g:godef_split=3 " 0 - current window, 2 - tab, 3 - vertical split
 let g:godef_same_file_in_same_window=1
 let g:go_fmt_command = "goimports"
 
