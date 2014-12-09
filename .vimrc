@@ -31,10 +31,9 @@ set nowrap
 nnoremap <leader>s :set spell!<cr>
 
 " Save on <leader>w
-nnoremap <leader><Space> :w<cr>
+nnoremap <leader>w :w<cr>
 
 " Columns and wrapping
-nnoremap <silent> <leader>w :set nowrap!<cr>
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
 function! g:ToggleColorColumn()
 	if &colorcolumn != ''
