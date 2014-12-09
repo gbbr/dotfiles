@@ -24,16 +24,20 @@ vnoremap <C-x> "*d
 " Theme
 syntax on
 colorscheme apprentice
+set title
 set cursorline
 set number
-set scrolloff=1
+set scrolloff=2
 set nowrap
+set laststatus=2
+set nostartofline
 nnoremap <leader>s :set spell!<cr>
 
 " Save on <leader>w
-nnoremap <leader>w :w<cr>
+nnoremap <cr> :w<cr>
 
 " Columns and wrapping
+nnoremap <leader>w :set nowrap!<cr>
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
 function! g:ToggleColorColumn()
 	if &colorcolumn != ''
@@ -73,15 +77,14 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " StatusBar (Airline)
 let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
 
 " EasyMotion
 nmap s <Plug>(easymotion-s)
 
 " NerdTree
+let NERDTreeQuitOnOpen=1
 nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
-let NERDTreeQuitOnOpen=1
 
 " CtrlP
 nmap <Leader>m :CtrlPMRU<CR>
