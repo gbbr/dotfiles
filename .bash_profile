@@ -3,6 +3,7 @@
 ##
 
 export GOPATH=~/go
+export GOBIN=$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
 export CLICOLOR=1
 export TERM=xterm-256color
