@@ -68,25 +68,25 @@ autocmd BufEnter *.json set filetype=javascript
 "  Plugins
 " --------------------------------------------------------------
 
-" SuperTab / NeoComplete
+" neocomplete.vim
 set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" StatusBar (Airline)
+" vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
-" EasyMotion
+" vim-easymotion
 nmap s <Plug>(easymotion-s)
 
-" NerdTree
+" nerdtree
 let NERDTreeQuitOnOpen=1
 nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 
-" CtrlP
+" ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
 
 " --------------------------------------------------------------
