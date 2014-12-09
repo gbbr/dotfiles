@@ -28,9 +28,7 @@ set cursorline
 set number
 set scrolloff=2
 set nowrap
-set laststatus=2
 set nostartofline
-set completeopt=longest,menuone
 colorscheme apprentice
 nnoremap <leader>s :set spell!<cr>
 
@@ -71,11 +69,13 @@ autocmd BufEnter *.json set filetype=javascript
 " --------------------------------------------------------------
 
 " SuperTab / NeoComplete
+set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " StatusBar (Airline)
+set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 
 " EasyMotion
