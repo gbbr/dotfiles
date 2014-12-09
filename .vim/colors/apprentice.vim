@@ -52,7 +52,7 @@ if &t_Co >= 256 || has('gui_running')
   hi String           ctermbg=NONE ctermfg=108  guibg=NONE    guifg=#87af87 cterm=NONE           gui=NONE
   hi Todo             ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=reverse        gui=reverse
   hi Type             ctermbg=NONE ctermfg=103  guibg=NONE    guifg=#8787af cterm=NONE           gui=NONE
-  hi GoKeyword        ctermbg=NONE ctermfg=1    guibg=NONE    guifg=#ff87af cterm=NONE           gui=NONE
+  hi GoKeyword        ctermbg=NONE ctermfg=45    guibg=NONE    guifg=#ff87af cterm=NONE           gui=NONE
   hi Underlined       ctermbg=NONE ctermfg=66   guibg=NONE    guifg=#5f8787 cterm=underline      gui=underline
 
   hi LineNr           ctermbg=234  ctermfg=242  guibg=#1c1c1c guifg=#6c6c6c cterm=NONE           gui=NONE
