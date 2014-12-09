@@ -23,7 +23,6 @@ vnoremap <C-x> "*d
 
 " Theme
 syntax on
-colorscheme apprentice
 set title
 set cursorline
 set number
@@ -31,6 +30,8 @@ set scrolloff=2
 set nowrap
 set laststatus=2
 set nostartofline
+set completeopt=longest,menuone
+colorscheme apprentice
 nnoremap <leader>s :set spell!<cr>
 
 " Save on <leader>w
@@ -54,23 +55,22 @@ set smartcase
 nnoremap <silent> <c-h> :set hlsearch!<CR>
 
 " Tabs and spaces
-nmap <leader>l :set list!<CR>
 set listchars=tab:\|-\,eol:¬,trail:·,nbsp:·
 set tabstop=4
 set shiftwidth=4
-
-" File types
-autocmd BufEnter *.json set filetype=javascript
+nmap <leader>l :set list!<CR>
 
 " Show current file as HTML (to paste into Keynote)
 nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+
+" File types
+autocmd BufEnter *.json set filetype=javascript
 
 " --------------------------------------------------------------
 "  Plugins
 " --------------------------------------------------------------
 
 " SuperTab / NeoComplete
-set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
