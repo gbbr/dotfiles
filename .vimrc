@@ -13,12 +13,6 @@ noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
 
-" Move between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Vertical split always right
 set splitright
 set splitbelow
@@ -67,9 +61,6 @@ nmap <leader>l :set list!<CR>
 " Show current file as HTML
 " nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
-" File types
-autocmd BufEnter *.json set filetype=javascript
-
 " --------------------------------------------------------------
 "  Plugins
 " --------------------------------------------------------------
@@ -113,3 +104,11 @@ au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" --------------------------------------------------------------
+"  JavaScript
+" --------------------------------------------------------------
+let javascript_enable_domhtmlcss = 1
+
+" File types
+autocmd BufEnter *.json set filetype=javascript
