@@ -50,7 +50,7 @@ endfunction
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <leader>h :set hlsearch!<CR>
+nnoremap <silent> <C-h> :set hlsearch!<CR>
 
 " Tabs and spaces
 set listchars=tab:\|-\,eol:¬,trail:·,nbsp:·
@@ -112,3 +112,4 @@ let javascript_enable_domhtmlcss = 1
 
 " File types
 autocmd BufEnter *.json set filetype=javascript
+let g:javascript_conceal_function = "ƒ"
