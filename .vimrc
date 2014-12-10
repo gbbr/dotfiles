@@ -13,6 +13,12 @@ noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
 
+" Move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Vertical split always right
 set splitright
 set splitbelow
@@ -50,7 +56,7 @@ endfunction
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <c-h> :set hlsearch!<CR>
+nnoremap <silent> <leader>h :set hlsearch!<CR>
 
 " Tabs and spaces
 set listchars=tab:\|-\,eol:¬,trail:·,nbsp:·
@@ -58,8 +64,8 @@ set tabstop=4
 set shiftwidth=4
 nmap <leader>l :set list!<CR>
 
-" Show current file as HTML (to paste into Keynote)
-nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+" Show current file as HTML
+" nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " File types
 autocmd BufEnter *.json set filetype=javascript
