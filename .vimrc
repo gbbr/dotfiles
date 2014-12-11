@@ -112,4 +112,5 @@ let javascript_enable_domhtmlcss = 1
 
 " File types
 autocmd BufEnter *.json set filetype=javascript
+let g:javascript_conceal = 1
 let g:javascript_conceal_function = "ƒ"
