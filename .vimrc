@@ -17,9 +17,8 @@ noremap <Down> <C-w>4-
 set splitright
 set splitbelow
 
-" Copy to clipboard
-vnoremap <C-c> "*y
-vnoremap <C-x> "*d
+" Share OS clipboard
+set clipboard=unnamed
 
 " Theme
 syntax on
