@@ -58,7 +58,7 @@ set shiftwidth=4
 nmap <leader>l :set list!<CR>
 
 " Show current file as HTML
-" nmap <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+map <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " --------------------------------------------------------------
 "  Plugins
