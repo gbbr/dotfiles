@@ -86,7 +86,7 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 nmap <Leader>m :CtrlPMRU<CR>
 
 " ctags
-nmap <F8> :TagbarToggle<CR>
+nmap <leader>. :TagbarToggle<CR>
 let g:tagbar_ctags_bin='~/ctags-5.8/ctags'
 
 " emmet.vim
