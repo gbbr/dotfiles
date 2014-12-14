@@ -31,6 +31,15 @@ set nostartofline
 colorscheme apprentice
 nnoremap <leader>s :set spell!<cr>
 
+" Cursor shape
+if exists('$TMUX')
+	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  else
+	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
 " Save on <leader>w
 nnoremap <cr> :w<cr>
 
@@ -84,11 +93,6 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 
 " ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
-
-" emmet.vim
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='l'
 
 " --------------------------------------------------------------
 "  Go Specific
