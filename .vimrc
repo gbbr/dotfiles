@@ -88,6 +88,7 @@ nmap <Leader>m :CtrlPMRU<CR>
 " ctags
 nmap <leader>. :TagbarToggle<CR>
 let g:tagbar_ctags_bin='~/ctags-5.8/ctags'
+let g:tagbar_width = 60
 
 " emmet.vim
 let g:user_emmet_install_global = 0
