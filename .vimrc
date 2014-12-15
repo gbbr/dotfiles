@@ -1,4 +1,31 @@
-execute pathogen#infect()
+set nocompatible
+
+" --------------------------------------------------------------
+"  Plugins
+" --------------------------------------------------------------
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'mileszs/ack.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/Tagbar'
+Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
+Plugin 'cespare/vim-go-templates'
+Plugin 'dgryski/vim-godef'
+Plugin 'pangloss/vim-javascript'
+
+call vundle#end()
+" --------------------------------------------------------------
+
 let mapleader = ","
 
 " Auto-indentation 
@@ -61,7 +88,7 @@ nmap <leader>l :set list!<CR>
 map <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " --------------------------------------------------------------
-"  Plugins
+"  Plugin Configuration
 " --------------------------------------------------------------
 
 " neocomplete.vim
