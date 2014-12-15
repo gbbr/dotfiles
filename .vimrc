@@ -19,7 +19,6 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
-Plugin 'cespare/vim-go-templates'
 Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
 
