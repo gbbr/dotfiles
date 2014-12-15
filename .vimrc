@@ -22,6 +22,7 @@ Plugin 'fatih/vim-go'
 Plugin 'cespare/vim-go-templates'
 Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
+Plugin 'romainl/Apprentice'
 
 call vundle#end()
 " --------------------------------------------------------------
