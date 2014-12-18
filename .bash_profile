@@ -1,19 +1,15 @@
-##
-# MAMP SETUP AND COLORS
-##
-
+# Go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com:$CDPATH"
 export TERM=xterm-256color
 export CLICOLOR=1
-
 export EDITOR=vim
 set -o vi
+ulimit -n 16384
 
 # Sourcegraph
-
 export SG_PEM_ENCRYPTION_PASSWORD=a
 export SG_TICKET_SIGNING_KEY=D88QLbOEnpYeWcUBxmwyaDTN7u2SL+gkZtzzpp4CvszWu/OBDEHUSfuY1coZx46dA3uP1oGByWHBczo0EeENlw==
 export SG_SESSION_SIGNING_KEY_BASE64=D88QLbOEnpYeWcUBxmwyaDTN7u2SL+gkZtzzpp4CvszWu/OBDEHUSfuY1coZx46dA3uP1oGByWHBczo0EeENlw==
@@ -26,7 +22,6 @@ alias sw='SG_SRCLIB_NO_DOCKER=t sgx work --build-root $GOPATH/src'
 alias cds='cd ~/go/src/sourcegraph.com'
 
 # Postgres
-
 export PGHOST=localhost
 export PGDATABASE=sg
 export PGUSER=Gabriel
