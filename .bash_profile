@@ -2,7 +2,7 @@
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
-export CDPATH=".:$GOPATH/src/github.com:$CDPATH"
+export CDPATH=".:$GOPATH/src/github.com:$GOPATH/src/sourcegraph.com/sourcegraph:$CDPATH"
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
@@ -19,7 +19,7 @@ export GITHUB_CLIENT_ID=8f375cca22470ba3fc2e
 export GITHUB_CLIENT_SECRET=6ee610a458fe492a719c4080fdfbab41a8cf2d80
 export SG_SRCLIB_NO_DOCKER=t
 alias sw='SG_SRCLIB_NO_DOCKER=t sgx work --build-root $GOPATH/src'
-alias cds='cd ~/go/src/sourcegraph.com'
+alias cds='cd ~/go/src/sourcegraph.com/sourcegraph'
 
 # Postgres
 export PGHOST=localhost

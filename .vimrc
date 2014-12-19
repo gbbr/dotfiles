@@ -32,6 +32,7 @@ filetype indent plugin on
 
 " Auto-closing braces
 inoremap {<CR>  {<CR>}<Esc>O
+inoremap (<CR>  (<CR>)<Esc>O
 
 " Resize splits
 noremap <Right> <C-w>10<
