@@ -106,6 +106,9 @@ nmap s <Plug>(easymotion-s)
 
 " nerdtree
 let NERDTreeQuitOnOpen=1
+let g:NERDTreeMapOpenSplit="<c-x>"
+let g:NERDTreeMapOpenVSplit="<c-v>"
+let g:NERDTreeMapOpenInTab="<c-t>"
 nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 
