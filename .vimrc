@@ -21,11 +21,15 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
 " --------------------------------------------------------------
 
 let mapleader = ","
+
+set nobackup
+set noswapfile
 
 " Auto-indentation 
 filetype indent plugin on
@@ -148,7 +152,10 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " --------------------------------------------------------------
 let javascript_enable_domhtmlcss = 1
 
-" File types
+" Indentation
+" autocmd Filetype javascript setlocal ts=3
+" autocmd Filetype javascript setlocal expandtab
+au FileType javascript nmap <leader>t :!gulp jest<cr>
+
+" Use javascript highlighting for JSON
 autocmd BufEnter *.json set filetype=javascript
-let g:javascript_conceal = 1
-let g:javascript_conceal_function = "ƒ"
