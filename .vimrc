@@ -30,6 +30,7 @@ let mapleader = ","
 
 set nobackup
 set noswapfile
+set vb
 
 " Auto-indentation 
 filetype indent plugin on
