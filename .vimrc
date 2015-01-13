@@ -159,4 +159,5 @@ let javascript_enable_domhtmlcss = 1
 au FileType javascript nmap <leader>t :!gulp jest<cr>
 
 " Use javascript highlighting for JSON
+autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
