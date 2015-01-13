@@ -10,14 +10,6 @@ set -o vi
 ulimit -n 16384
 
 # Sourcegraph
-export SG_PEM_ENCRYPTION_PASSWORD=a
-export SG_TICKET_SIGNING_KEY=D88QLbOEnpYeWcUBxmwyaDTN7u2SL+gkZtzzpp4CvszWu/OBDEHUSfuY1coZx46dA3uP1oGByWHBczo0EeENlw==
-export SG_SESSION_SIGNING_KEY_BASE64=D88QLbOEnpYeWcUBxmwyaDTN7u2SL+gkZtzzpp4CvszWu/OBDEHUSfuY1coZx46dA3uP1oGByWHBczo0EeENlw==
-export SG_PEM_ENCRYPTION_PASSWORD=aaa
-export SG_SESSION_ENCRYPTION_KEY_BASE64=d3yTwrqO5jpZXrQSR9U3XOeFi07QJ2/sCkDNoj0Cs08=
-export GITHUB_CLIENT_ID=8f375cca22470ba3fc2e
-export GITHUB_CLIENT_SECRET=6ee610a458fe492a719c4080fdfbab41a8cf2d80
-export SG_SRCLIB_NO_DOCKER=t
 alias sw='SG_SRCLIB_NO_DOCKER=t sgx work --build-root $GOPATH/src'
 alias cds='cd ~/go/src/sourcegraph.com/sourcegraph'
 
