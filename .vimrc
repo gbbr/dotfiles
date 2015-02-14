@@ -32,6 +32,11 @@ set nobackup
 set noswapfile
 set vb
 
+" Ack searches
+noremap <leader>sg :Ack --go 
+noremap <leader>sj :Ack --jsx 
+noremap <leader>sc :Ack --scss 
+
 " Auto-indentation 
 filetype indent plugin on
 
@@ -48,6 +53,9 @@ noremap <Down> <C-w>4-
 " Vertical split always right
 set splitright
 set splitbelow
+
+" Local CD
+noremap <leader>c :lcd %:p:h<CR>
 
 " Share OS clipboard
 set clipboard=unnamed

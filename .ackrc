@@ -1,2 +1,2 @@
---type-set=scss:ext:scss
+--type-set=scss:ext:scss,css
 --type-set=jsx:ext:js,jsx

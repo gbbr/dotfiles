@@ -6,11 +6,13 @@ export CDPATH=".:$GOPATH/src/github.com:$GOPATH/src/sourcegraph.com/sourcegraph:
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
+export VCS_STORE_URL=http://localhost:9091
+export SG_SRCLIB_NO_DOCKER=t
 set -o vi
 ulimit -n 16384
 
 # Sourcegraph
-alias sw='SG_SRCLIB_NO_DOCKER=t sgx work --build-root $GOPATH/src'
+alias sw='SG_BUILD_ROOT=$GOPATH/src SG_SRCLIB_NO_DOCKER=t sgx work'
 alias cds='cd ~/go/src/sourcegraph.com/sourcegraph'
 
 # Postgres
@@ -20,6 +22,8 @@ export PGUSER=Gabriel
 export PGPORT=5432
 export PGSSLMODE=disable
 export PGTZ=UTC
+export PYTHONPATH="/usr/local/lib/python2.7/site-packages"
+export ELASTICBEANSTALK_URL=https://elasticbeanstalk.us-west-2.amazonaws.com
 
 ##
 # COMMAND LINE FORMAT
