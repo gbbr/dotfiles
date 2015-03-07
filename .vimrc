@@ -21,6 +21,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
