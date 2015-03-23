@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/Tagbar'
@@ -70,13 +70,17 @@ set scrolloff=2
 set nowrap
 set nostartofline
 colorscheme apprentice
+
+" Toggle spell checker
 nnoremap <leader>s :set spell!<cr>
 
-" Save on <leader>w
+" Save on Enter
 nnoremap <cr> :w<cr>
 
 " Columns and wrapping
 nnoremap <leader>w :set nowrap!<cr>
+
+" Toggle vertical bar at 80 columns
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
 function! g:ToggleColorColumn()
 	if &colorcolumn != ''
@@ -107,13 +111,23 @@ map <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " neocomplete.vim
 set completeopt=longest,menuone
-let g:neocomplete#enable_at_startup = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set encoding=utf-8
+let g:Powerline_symbols="fancy"
+let g:airline_symbols = {}
+let g:airline_left_sep = "\u2b80" "use double quotes here
+let g:airline_left_alt_sep = "\u2b81"
+let g:airline_right_sep = "\u2b82"
+let g:airline_right_alt_sep = "\u2b83"
+let g:airline_symbols.branch = "\u2b60"
+let g:airline_symbols.readonly = "\u2b64"
+let g:airline_symbols.linenr = "\u2b61"
 
 " vim-easymotion
 nmap s <Plug>(easymotion-s)
@@ -165,7 +179,7 @@ let javascript_enable_domhtmlcss = 1
 " Indentation
 " autocmd Filetype javascript setlocal ts=3
 " autocmd Filetype javascript setlocal expandtab
-au FileType javascript nmap <leader>t :!gulp jest<cr>
+au FileType javascript nmap <leader>t :!jest<cr>
 
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
