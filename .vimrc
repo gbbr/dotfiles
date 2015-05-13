@@ -37,6 +37,7 @@ set vb
 noremap <leader>sg :Ack --go 
 noremap <leader>sj :Ack --jsx 
 noremap <leader>sc :Ack --scss 
+noremap <leader>sh :Ack --html 
 
 " Auto-indentation 
 filetype indent plugin on
