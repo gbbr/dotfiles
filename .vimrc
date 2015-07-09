@@ -23,6 +23,7 @@ Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -114,6 +115,19 @@ map <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 set completeopt=longest,menuone
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" ultisnip
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
 " vim-airline
 set laststatus=2

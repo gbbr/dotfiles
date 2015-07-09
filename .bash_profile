@@ -6,7 +6,6 @@ export CDPATH=".:$GOPATH/src/github.com:$GOPATH/src/sourcegraph.com/sourcegraph:
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
-export VCS_STORE_URL=http://localhost:9091
 export SG_SRCLIB_NO_DOCKER=t
 set -o vi
 ulimit -n 16384
