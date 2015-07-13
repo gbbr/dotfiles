@@ -110,6 +110,17 @@ nmap <leader>l :set list!<CR>
 map <Leader><C-h> :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " --------------------------------------------------------------
+"  GUI Configuration
+" --------------------------------------------------------------
+set guifont=Consolas:h15
+set linespace=1
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+
+
+" --------------------------------------------------------------
 "  Plugin Configuration
 " --------------------------------------------------------------
 
