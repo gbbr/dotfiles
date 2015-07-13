@@ -13,7 +13,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/Tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
@@ -52,6 +51,12 @@ noremap <Right> <C-w>10<
 noremap <Left> <C-w>10>
 noremap <Up> <C-w>4+
 noremap <Down> <C-w>4-
+
+" Navigate splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Vertical split always right
 set splitright
@@ -96,7 +101,7 @@ endfunction
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <C-h> :set hlsearch!<CR>
+nnoremap <silent> <leader>h :set hlsearch!<CR>
 
 " Tabs and spaces
 set listchars=tab:\|-\,eol:¬,trail:·,nbsp:·
@@ -105,7 +110,7 @@ set shiftwidth=4
 nmap <leader>l :set list!<CR>
 
 " Show current file as HTML
-map <Leader>h :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
+map <Leader><C-h> :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 
 " --------------------------------------------------------------
 "  Plugin Configuration
@@ -157,11 +162,6 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 
 " ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
-
-" ctags
-nmap <leader>. :TagbarToggle<CR>
-let g:tagbar_ctags_bin='~/ctags-5.8/ctags'
-let g:tagbar_width = 60
 
 " emmet.vim
 let g:user_emmet_install_global = 0
