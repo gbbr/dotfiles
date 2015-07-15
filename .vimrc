@@ -120,7 +120,6 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-
 " --------------------------------------------------------------
 "  Plugin Configuration
 " --------------------------------------------------------------
@@ -130,7 +129,7 @@ set completeopt=longest,menuone
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" git-gutter disable
+" git-gutter disable mappings
 let g:gitgutter_map_keys = 0
 
 " vim-easymotion
@@ -172,8 +171,6 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 let javascript_enable_domhtmlcss = 1
 
 " Indentation
-" autocmd Filetype javascript setlocal ts=3
-" autocmd Filetype javascript setlocal expandtab
 au FileType javascript nmap <leader>t :!jest<cr>
 
 " Use javascript highlighting for JSON
