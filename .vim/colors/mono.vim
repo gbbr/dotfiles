@@ -41,7 +41,7 @@ if &t_Co >= 256 || has('gui_running')
 
   set background=dark
 
-  hi Comment          ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#585858 cterm=NONE           gui=NONE
+  hi Comment          ctermbg=NONE ctermfg=240  guibg=NONE    guifg=#909090 cterm=NONE           gui=NONE
   hi Constant           ctermbg=233  ctermfg=250  guibg=#1c1c1c guifg=#bcbcbc cterm=NONE           gui=NONE
   hi Error           ctermbg=233  ctermfg=250  guibg=#1c1c1c guifg=#bcbcbc cterm=NONE           gui=NONE
   hi Identifier           ctermbg=233  ctermfg=250  guibg=#1c1c1c guifg=#bcbcbc cterm=NONE           gui=NONE

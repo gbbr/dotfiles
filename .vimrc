@@ -29,6 +29,7 @@ let mapleader = ","
 set nobackup
 set noswapfile
 set vb
+set laststatus=2
 
 " Ack searches
 noremap <leader>sg :Ack --go 
@@ -146,10 +147,6 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 " ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
 
-" emmet.vim
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<C-t>'
 " --------------------------------------------------------------
 "  Go Specific
 " --------------------------------------------------------------
