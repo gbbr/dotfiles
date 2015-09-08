@@ -24,7 +24,7 @@ Plugin 'jelera/vim-javascript-syntax'
 call vundle#end()
 " --------------------------------------------------------------
 
-let mapleader = ","
+let mapleader = " "
 
 set nobackup
 set noswapfile
