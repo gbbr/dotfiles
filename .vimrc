@@ -29,8 +29,6 @@ let mapleader = ","
 set nobackup
 set noswapfile
 set vb
-set laststatus=2
-set relativenumber
 
 " Ack searches
 noremap <leader>sg :Ack --go 
@@ -71,7 +69,8 @@ set clipboard=unnamed
 syntax on
 set title
 set cursorline
-set number
+set laststatus=2
+set relativenumber
 set scrolloff=2
 set nowrap
 set nostartofline
