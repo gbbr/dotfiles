@@ -24,12 +24,13 @@ Plugin 'jelera/vim-javascript-syntax'
 call vundle#end()
 " --------------------------------------------------------------
 
-let mapleader = " "
+let mapleader = ","
 
 set nobackup
 set noswapfile
 set vb
 set laststatus=2
+set relativenumber
 
 " Ack searches
 noremap <leader>sg :Ack --go 
