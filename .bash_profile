@@ -12,7 +12,7 @@ ulimit -n 16384
 
 # Sourcegraph
 alias sw='SG_BUILD_ROOT=$GOPATH/src SG_SRCLIB_NO_DOCKER=t sgx work'
-alias cds='cd ~/go/src/sourcegraph.com/sourcegraph'
+alias cds='cd ~/go/src/src.sourcegraph.com/sourcegraph'
 
 # Postgres
 export PGHOST=localhost
