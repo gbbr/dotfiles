@@ -2,17 +2,13 @@
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOPATH/bin:$PATH
-export CDPATH=".:$GOPATH/src/github.com:$GOPATH/src/sourcegraph.com/sourcegraph:$CDPATH"
+export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
 export SG_SRCLIB_NO_DOCKER=t
 set -o vi
 ulimit -n 16384
-
-# Sourcegraph
-alias sw='SG_BUILD_ROOT=$GOPATH/src SG_SRCLIB_NO_DOCKER=t sgx work'
-alias cds='cd ~/go/src/src.sourcegraph.com/sourcegraph'
 
 # Postgres
 export PGHOST=localhost
