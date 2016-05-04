@@ -173,6 +173,8 @@ let javascript_enable_domhtmlcss = 1
 
 " Indentation
 au FileType javascript nmap <leader>t :!jest<cr>
+au FileType javascript setlocal ts=4 sw=4 expandtab
+au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
 
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
