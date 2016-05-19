@@ -6,7 +6,8 @@ export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
-export SG_SRCLIB_NO_DOCKER=t
+export PATH=/Volumes/Work/go_appengine:$PATH
+unset PYTHONPATH
 set -o vi
 ulimit -n 16384
 
@@ -56,3 +57,8 @@ bind '"\e[B": history-search-forward'
 
 export NVM_DIR="/Users/gabriel/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
