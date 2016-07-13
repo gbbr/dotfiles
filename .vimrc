@@ -20,6 +20,7 @@ Plugin 'dgryski/vim-godef'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'rstacruz/sparkup'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -175,6 +176,7 @@ let javascript_enable_domhtmlcss = 1
 au FileType javascript nmap <leader>t :!jest<cr>
 au FileType javascript setlocal ts=4 sw=4 expandtab
 au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
+au FileType javascript nmap <leader>dg odebugger;<Esc>
 
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
