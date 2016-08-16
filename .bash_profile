@@ -1,15 +1,14 @@
 # Go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOPATH/bin:$PATH
+export PATH=~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
-export PATH=/Volumes/Work/go_appengine:$PATH
 unset PYTHONPATH
 set -o vi
-ulimit -n 16384
+# ulimit -n 16384
 
 # Postgres
 export PGHOST=localhost
