@@ -6,7 +6,8 @@ export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
 export EDITOR=vim
-unset PYTHONPATH
+export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/
+
 set -o vi
 # ulimit -n 16384
 
