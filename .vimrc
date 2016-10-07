@@ -147,6 +147,7 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 
 " ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
+let g:ctrlp_max_files=0
 
 " --------------------------------------------------------------
 "  Go Specific
