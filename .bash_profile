@@ -1,7 +1,7 @@
 # Go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/mysql/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1

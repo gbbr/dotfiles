@@ -36,6 +36,7 @@ noremap <leader>sg :Ack! --go
 noremap <leader>sj :Ack! --jsx 
 noremap <leader>sc :Ack! --scss 
 noremap <leader>sh :Ack! --html 
+noremap <leader>sp :Ack! --php 
 
 " Auto-indentation 
 filetype indent plugin on
@@ -87,13 +88,13 @@ nnoremap <cr> :w<cr>
 " Columns and wrapping
 nnoremap <leader>w :set nowrap!<cr>
 
-" Toggle vertical bar at 80 columns
+" Toggle vertical bar at 120 columns
 nnoremap <silent> <leader>8 :call g:ToggleColorColumn()<CR>
 function! g:ToggleColorColumn()
 	if &colorcolumn != ''
 		setlocal colorcolumn&
 	else
-		setlocal colorcolumn=80
+		setlocal colorcolumn=120
 	endif
 endfunction
 

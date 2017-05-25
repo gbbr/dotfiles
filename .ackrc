@@ -1,2 +1,3 @@
 --type-set=scss:ext:scss,css,less
 --type-set=jsx:ext:js,jsx
+--type-set=php:ext:php
