@@ -21,6 +21,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'rstacruz/sparkup'
+Plugin 'flowtype/vim-flow'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -80,7 +81,7 @@ set nostartofline
 colorscheme mono
 
 " Toggle spell checker
-nnoremap <leader>s :set spell!<cr>
+nnoremap <leader>ss :set spell!<cr>
 
 " Save on Enter
 nnoremap <cr> :w<cr>
@@ -180,6 +181,13 @@ au FileType javascript setlocal ts=4 sw=4 expandtab
 au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
 au FileType javascript nmap <leader>dg odebugger;<Esc>
 
+augroup ConferizeSetup
+	au BufRead,BufEnter /Users/Gabriel/go/src/github.com/conferize/* set et ts=2 sw=2
+augroup END
+
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
+
+set exrc " allow local project-specific vimrc
+set secure " disable unsafe commands in project-specific configurations

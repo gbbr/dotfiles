@@ -1,7 +1,7 @@
 # Go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=/usr/local/mysql/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -13,13 +13,10 @@ set -o vi
 
 # Postgres
 export PGHOST=localhost
-export PGDATABASE=sg
-export PGUSER=Gabriel
+export PGUSER=gbbr
 export PGPORT=5432
 export PGSSLMODE=disable
 export PGTZ=UTC
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages"
-export ELASTICBEANSTALK_URL=https://elasticbeanstalk.us-west-2.amazonaws.com
 
 ##
 # COMMAND LINE FORMAT
@@ -47,6 +44,7 @@ PS1="$GREEN\u@\h$NO_COLOUR:\W$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 alias bye='exit'
 alias swap='echo; echo "Breakdown:"; du -hs /private/var/vm/*; echo; echo "Total: "; du -hs /private/var/vm/;echo;'
 alias gg="git grep -C 3 $@"
+alias cdc="cd ~/go/src/github.com/conferize/conferize"
 
 ##
 # HISTORY AUCO-COMPLETE
@@ -61,4 +59,6 @@ export NVM_DIR="/Users/gabriel/.nvm"
 # Setting PATH for Python 3.5
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+rbenv global 2.3.4
