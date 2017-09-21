@@ -1,5 +1,4 @@
 # Go
-export GOROOT=/usr/local/go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export GODEV=~/dev/go
