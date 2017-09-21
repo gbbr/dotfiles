@@ -21,7 +21,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'rstacruz/sparkup'
-Plugin 'flowtype/vim-flow'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -183,6 +182,7 @@ au FileType javascript nmap <leader>dg odebugger;<Esc>
 
 augroup ConferizeSetup
 	au BufRead,BufEnter /Users/Gabriel/go/src/github.com/conferize/* set et ts=2 sw=2
+	"au BufRead,BufEnter /Users/Gabriel/go/src/github.com/gbbr/* set et ts=2 sw=2
 augroup END
 
 " Use javascript highlighting for JSON
