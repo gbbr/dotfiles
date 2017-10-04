@@ -1,7 +1,7 @@
 # Go
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export GODEV=~/dev/go
+export GODEV=~/g/go
 export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:/usr/local/go/bin~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
