@@ -116,7 +116,7 @@ map <Leader><C-h> :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 " --------------------------------------------------------------
 "  GUI Configuration
 " --------------------------------------------------------------
-set guifont=Consolas:h15
+set guifont=Consolas:h17
 set linespace=1
 set guioptions-=r
 set guioptions-=R
