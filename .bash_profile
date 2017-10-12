@@ -2,7 +2,7 @@
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export GODEV=~/g/go
-export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:/usr/local/go/bin~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:/usr/local/go/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -60,6 +60,3 @@ export NVM_DIR="/Users/gabriel/.nvm"
 # Setting PATH for Python 3.5
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-rbenv global 2.3.4
