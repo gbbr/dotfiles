@@ -10,7 +10,7 @@ export EDITOR=vim
 export PYTHONPATH=/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/
 
 set -o vi
-# ulimit -n 16384
+## ulimit -n 16384
 
 # Postgres
 export PGHOST=localhost
