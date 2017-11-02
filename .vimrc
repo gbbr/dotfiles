@@ -9,7 +9,6 @@ call vundle#begin()
 
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-easymotion'
@@ -117,7 +116,7 @@ map <Leader><C-h> :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 " --------------------------------------------------------------
 "  GUI Configuration
 " --------------------------------------------------------------
-set guifont=Consolas:h15
+set guifont=Consolas:h17
 set linespace=1
 set guioptions-=r
 set guioptions-=R
