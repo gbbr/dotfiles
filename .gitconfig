@@ -1,0 +1,23 @@
+[user]
+	name = Gabriel Aszalos
+	email = gabriel.aszalos@gmail.com
+	signingkey = 1959C01F12D84233
+[http]
+	cookiefile = /Users/gbbr/.gitcookies
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[alias]
+	workprofile = config user.email \"gabriel.aszalos@sourcefabric.org\"
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
