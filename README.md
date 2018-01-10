@@ -1,5 +1,7 @@
 ### Installation
 
+Follow these steps:
+
 1. Clone this repo and place all the files in your home folder.
 2. Install Vundle:
 ```
