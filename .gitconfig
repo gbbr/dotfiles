@@ -1,7 +1,7 @@
 [user]
 	name = Gabriel Aszalos
 	email = gabriel.aszalos@gmail.com
-	signingkey = 1959C01F12D84233
+	signingkey = 697DA8DF681E9A54
 [http]
 	cookiefile = /Users/gbbr/.gitcookies
 [filter "lfs"]
@@ -10,7 +10,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 [alias]
-	workprofile = config user.email \"gabriel.aszalos@sourcefabric.org\"
+	workprofile = config user.email \"gabriel.aszalos@datadoghq.com\"
 	change = codereview change
 	gofmt = codereview gofmt
 	mail = codereview mail

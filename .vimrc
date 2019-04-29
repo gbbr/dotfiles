@@ -16,12 +16,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'dgrisky/vim-godef'
 Plugin 'fatih/vim-go'
-Plugin 'dgryski/vim-godef'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'rstacruz/sparkup'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -117,7 +113,7 @@ map <Leader><C-h> :TOhtml<CR>:w<cr>:!open %<CR>:q<CR>
 " --------------------------------------------------------------
 "  GUI Configuration
 " --------------------------------------------------------------
-set guifont=Consolas:h17
+set guifont=Consolas:h15
 set linespace=1
 set guioptions-=r
 set guioptions-=R
@@ -158,7 +154,7 @@ let g:godef_split=3 " 0 - current window, 2 - tab, 3 - vertical split
 let g:godef_same_file_in_same_window=1
 let g:go_fmt_command = "goimports"
 
-au FileType go nmap gd <Plug>(go-def)
+"au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
@@ -197,17 +193,14 @@ set secure " disable unsafe commands in project-specific configurations
 "  COC
 " --------------------------
 
-let g:go_def_mapping_enabled = 0
-
 " if hidden is not set, TextEdit might fail.
 set hidden
 
 " Some servers have issues with backup files, see #649
-set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+" set cmdheight=2
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
@@ -243,7 +236,6 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -264,10 +256,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -291,21 +279,6 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-
 
 " Using CocList
 " Show all diagnostics

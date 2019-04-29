@@ -3,6 +3,7 @@ export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export GODEV=~/g/go
 export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:/usr/local/go/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -45,7 +46,8 @@ PS1="$GREEN\u@\h$NO_COLOUR:\W$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 alias bye='exit'
 alias swap='echo; echo "Breakdown:"; du -hs /private/var/vm/*; echo; echo "Total: "; du -hs /private/var/vm/;echo;'
 alias gg="git grep -C 3 $@"
-alias cdg="cd ~/go/src/github.com/gbbr"
+alias cdg="cd ~/go/src/gopkg.in/DataDog/dd-trace-go.v1"
+alias cdd="cd ~/go/src/github.com/DataDog"
 
 ##
 # HISTORY AUCO-COMPLETE
