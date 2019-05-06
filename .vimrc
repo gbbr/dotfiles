@@ -27,6 +27,7 @@ let mapleader = ","
 set nobackup
 set noswapfile
 set vb
+set autoread
 
 " Ack searches
 noremap <leader>sg :Ack! --go 
@@ -143,6 +144,8 @@ let g:NERDTreeMapOpenInTab="<c-t>"
 nmap <leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 
+nmap T :terminal<CR>
+
 " ctrlp.vim
 nmap <Leader>m :CtrlPMRU<CR>
 let g:ctrlp_max_files=0
@@ -177,11 +180,6 @@ au FileType javascript setlocal ts=4 sw=4 expandtab
 au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
 au FileType javascript nmap <leader>dg odebugger;<Esc>
 
-augroup ConferizeSetup
-	au BufRead,BufEnter /Users/Gabriel/go/src/github.com/conferize/* set et ts=2 sw=2
-	"au BufRead,BufEnter /Users/Gabriel/go/src/github.com/gbbr/* set et ts=2 sw=2
-augroup END
-
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
@@ -195,9 +193,6 @@ set secure " disable unsafe commands in project-specific configurations
 
 " if hidden is not set, TextEdit might fail.
 set hidden
-
-" Some servers have issues with backup files, see #649
-set nowritebackup
 
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
