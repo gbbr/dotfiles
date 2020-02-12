@@ -18,6 +18,7 @@ Plugin 'tpope/vim-rhubarb'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'dgrisky/vim-godef'
 Plugin 'fatih/vim-go'
+Plugin 'pearofducks/ansible-vim'
 
 call vundle#end()
 " --------------------------------------------------------------
@@ -183,6 +184,8 @@ au FileType javascript nmap <leader>dg odebugger;<Esc>
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set exrc " allow local project-specific vimrc
 set secure " disable unsafe commands in project-specific configurations
