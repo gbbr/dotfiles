@@ -184,6 +184,7 @@ au FileType javascript nmap <leader>dg odebugger;<Esc>
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
+cnoreabbrev FormatJSON %!python -m json.tool
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
