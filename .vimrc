@@ -16,7 +16,6 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'dgrisky/vim-godef'
 Plugin 'fatih/vim-go'
 Plugin 'pearofducks/ansible-vim'
 
@@ -192,7 +191,7 @@ set exrc " allow local project-specific vimrc
 set secure " disable unsafe commands in project-specific configurations
 
 " ---------------------------
-"  COC
+"  COC START
 " --------------------------
 
 " if hidden is not set, TextEdit might fail.
@@ -234,3 +233,9 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+highlight CocErrorFloat ctermfg=White guifg=#DDDDDD
+
+" ---------------------------
+"  COC END
+" --------------------------
