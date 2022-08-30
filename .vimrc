@@ -31,12 +31,12 @@ set vb
 set autoread
 
 " Ack searches
-noremap <leader>sg :Ack! --go
-noremap <leader>sj :Ack! --jsx
-noremap <leader>sc :Ack! --scss
-noremap <leader>sh :Ack! --html
-noremap <leader>sp :Ack! --py
-noremap <leader>sy :Ack! --yaml
+noremap <leader>sg :Ack! --go 
+noremap <leader>sj :Ack! --jsx 
+noremap <leader>sc :Ack! --scss 
+noremap <leader>sh :Ack! --html 
+noremap <leader>sp :Ack! --py 
+noremap <leader>sy :Ack! --yaml 
 
 " Auto-indentation 
 filetype indent plugin on
