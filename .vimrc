@@ -31,11 +31,12 @@ set vb
 set autoread
 
 " Ack searches
-noremap <leader>sg :Ack! --go 
-noremap <leader>sj :Ack! --jsx 
-noremap <leader>sc :Ack! --scss 
-noremap <leader>sh :Ack! --html 
-noremap <leader>sp :Ack! --php 
+noremap <leader>sg :Ack! --go
+noremap <leader>sj :Ack! --jsx
+noremap <leader>sc :Ack! --scss
+noremap <leader>sh :Ack! --html
+noremap <leader>sp :Ack! --py
+noremap <leader>sy :Ack! --yaml
 
 " Auto-indentation 
 filetype indent plugin on
@@ -157,6 +158,7 @@ let g:ctrlp_max_files=0
 let g:godef_split=3 " 0 - current window, 2 - tab, 3 - vertical split
 let g:godef_same_file_in_same_window=1
 let g:go_fmt_command = "goimports"
+let g:go_build_tags = "otlp"
 
 "au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>i <Plug>(go-info)
@@ -192,7 +194,7 @@ set exrc " allow local project-specific vimrc
 set secure " disable unsafe commands in project-specific configurations
 
 " ---------------------------
-"  COC
+"  COC START
 " --------------------------
 
 " if hidden is not set, TextEdit might fail.
@@ -234,3 +236,9 @@ augroup mygroup
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+highlight CocErrorFloat ctermfg=White guifg=#DDDDDD
+
+" ---------------------------
+"  COC END
+" --------------------------
