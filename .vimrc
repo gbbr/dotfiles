@@ -4,23 +4,23 @@ set nocompatible
 "  Plugins
 " --------------------------------------------------------------
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'mileszs/ack.vim'
-Plugin 'neoclide/coc.nvim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'dgrisky/vim-godef'
-Plugin 'fatih/vim-go'
-Plugin 'pearofducks/ansible-vim'
+" https://github.com/junegunn/vim-plug
+call plug#begin()
 
-call vundle#end()
+Plug 'mileszs/ack.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+Plug 'pearofducks/ansible-vim'
+
+call plug#end()
 " --------------------------------------------------------------
 
 let mapleader = ","
@@ -157,10 +157,13 @@ let g:ctrlp_max_files=0
 " --------------------------------------------------------------
 let g:godef_split=3 " 0 - current window, 2 - tab, 3 - vertical split
 let g:godef_same_file_in_same_window=1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
-let g:go_build_tags = "otlp"
+let g:go_build_tags = "otlp containerd cri docker"
 
 "au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap gd <Plug>(coc-definition)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
@@ -179,12 +182,13 @@ let javascript_enable_domhtmlcss = 1
 
 " Indentation
 au FileType javascript nmap <leader>t :!jest<cr>
-au FileType javascript setlocal ts=4 sw=4 expandtab
+"au FileType javascript setlocal ts=4 sw=4 expandtab
 au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
 au FileType javascript nmap <leader>dg odebugger;<Esc>
 
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
+autocmd BufEnter *.tsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
 cnoreabbrev FormatJSON %!python -m json.tool
 
@@ -196,6 +200,8 @@ set secure " disable unsafe commands in project-specific configurations
 " ---------------------------
 "  COC START
 " --------------------------
+
+let g:coc_global_extensions = ['coc-go']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
