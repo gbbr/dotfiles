@@ -3,7 +3,8 @@ export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export GODEV=~/g/go
 export PATH=/usr/local/bin:/usr/local/opt/ruby@2.3/bin:/usr/local/mysql/bin:/usr/local/go/bin:~/go/src/github.com/golang/go/bin:$GOPATH/bin:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 export CDPATH=".:$GOPATH/src/github.com"
 export TERM=xterm-256color
 export CLICOLOR=1
@@ -37,7 +38,7 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
  
-PS1="$GREEN\u@\h$NO_COLOUR:\W$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+PS1="$GREEN\u$NO_COLOUR:\W$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
 ##
 # MY ALIASES
@@ -62,3 +63,10 @@ export NVM_DIR="/Users/gabriel/.nvm"
 # Setting PATH for Python 3.5
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+
+. "$HOME/.local/bin/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/azzalos/.lmstudio/bin"
+# End of LM Studio CLI section
+

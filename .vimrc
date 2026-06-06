@@ -180,6 +180,9 @@ au FileType javascript setlocal ts=4 sw=4 expandtab
 au FileType javascript nmap <leader>cl oconsole.log();<Esc>hi
 au FileType javascript nmap <leader>dg odebugger;<Esc>
 
+"" Python specific indentation settings
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
 " Use javascript highlighting for JSON
 autocmd BufEnter *.jsx set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
@@ -239,3 +242,257 @@ highlight CocErrorFloat ctermfg=White guifg=#DDDDDD
 " ---------------------------
 "  COC END
 " --------------------------
+
+" ════════════════════════════════════════════════════════════════════════════
+"  :FindAll — multi-term file search with negation, quoting, ripgrep support
+"
+"  Syntax
+"    :FindAll [-c] [-w] [-F] [-g GLOB] <terms …>
+"
+"  Flags  (mix freely with terms)
+"    -c          case-sensitive       (default: case-insensitive)
+"    -w          whole-word match
+"    -F          fixed strings — terms are literals, not regexes
+"    -g GLOB     restrict to files matching GLOB  (e.g. *.py or *.{js,ts})
+"
+"  Term prefixes
+"    word          must be present
+"    !word         must be absent
+"    "two words"   quoted multi-word term  (single quotes also work)
+"    !"bad phrase" quoted absent term
+"
+"  Examples
+"    :FindAll api error !deprecated
+"    :FindAll "entry point" !TODO -g *.go -w
+"    :FindAll -c MyClass !abstract -g *.java
+"    :FindAll !"do not use" helperFn -F
+"
+"  Uses ripgrep (rg) automatically when available; falls back to grep.
+" ════════════════════════════════════════════════════════════════════════════
+
+
+" ── tokeniser ─────────────────────────────────────────────────────────────────
+" Splits the raw arg string into tokens, honouring " and ' quoting.
+" A leading '!' is kept on the token so the parser can detect negation.
+function! s:FA_Tokenise(raw) abort
+    let l:out = []
+    let l:i   = 0
+    let l:n   = len(a:raw)
+
+    while l:i < l:n
+        " skip whitespace
+        while l:i < l:n && a:raw[l:i] =~# '\s'
+            let l:i += 1
+        endwhile
+        if l:i >= l:n | break | endif
+
+        " optional '!' negation prefix
+        let l:pfx = ''
+        if a:raw[l:i] ==# '!'
+            let l:pfx = '!'
+            let l:i  += 1
+            if l:i >= l:n | break | endif
+        endif
+
+        " quoted or bare value
+        let l:ch = a:raw[l:i]
+        if l:ch ==# '"' || l:ch ==# "'"
+            let l:q   = l:ch
+            let l:i  += 1
+            let l:val = ''
+            while l:i < l:n && a:raw[l:i] !=# l:q
+                let l:val .= a:raw[l:i]
+                let l:i   += 1
+            endwhile
+            let l:i += 1              " consume closing quote
+        else
+            let l:val = ''
+            while l:i < l:n && a:raw[l:i] !~# '\s'
+                let l:val .= a:raw[l:i]
+                let l:i   += 1
+            endwhile
+        endif
+
+        if !empty(l:val) | call add(l:out, l:pfx . l:val) | endif
+    endwhile
+
+    return l:out
+endfunction
+
+
+" ── argument parser ───────────────────────────────────────────────────────────
+" Returns  [ opts{}, terms[] ]
+"   opts .case_sensitive / .whole_word / .fixed / .glob
+"   terms[n] .term  .negate
+function! s:FA_Parse(raw) abort
+    let l:tokens = s:FA_Tokenise(a:raw)
+    let l:opts   = { 'case_sensitive': 0, 'whole_word': 0, 'fixed': 0, 'glob': '' }
+    let l:terms  = []
+    let l:i      = 0
+
+    while l:i < len(l:tokens)
+        let l:t = l:tokens[l:i]
+        if     l:t ==# '-c' | let l:opts.case_sensitive = 1
+        elseif l:t ==# '-w' | let l:opts.whole_word     = 1
+        elseif l:t ==# '-F' | let l:opts.fixed          = 1
+        elseif l:t ==# '-g'
+            let l:i += 1
+            if l:i < len(l:tokens) | let l:opts.glob = l:tokens[l:i] | endif
+        elseif !empty(l:t) && l:t[0] ==# '!'
+            call add(l:terms, { 'term': l:t[1:], 'negate': 1 })
+        else
+            call add(l:terms, { 'term': l:t,     'negate': 0 })
+        endif
+        let l:i += 1
+    endwhile
+
+    return [l:opts, l:terms]
+endfunction
+
+
+" ── shared flag string ────────────────────────────────────────────────────────
+" Builds -i / -w / -F / --include flags; -r / -l are added per call site.
+function! s:FA_Flags(opts, use_rg) abort
+    let l:f = []
+    if !a:opts.case_sensitive | call add(l:f, '-i') | endif
+    if  a:opts.whole_word     | call add(l:f, '-w') | endif
+    if  a:opts.fixed          | call add(l:f, '-F') | endif
+    if !empty(a:opts.glob)
+        call add(l:f, a:use_rg
+            \ ? '-g '        . shellescape(a:opts.glob)
+            \ : '--include=' . shellescape(a:opts.glob))
+    endif
+    return join(l:f, ' ')
+endfunction
+
+
+" ── positive filter ───────────────────────────────────────────────────────────
+" Returns files from haystack containing term.
+" Empty haystack → seed with a fresh recursive search from '.'.
+function! s:FA_Include(term, haystack, flags, use_rg) abort
+    if empty(a:haystack)
+        let l:cmd = (a:use_rg ? 'rg -l ' : 'grep -rl ')
+            \ . a:flags . ' ' . shellescape(a:term) . ' .'
+    else
+        let l:fargs = join(map(copy(a:haystack), 'shellescape(v:val)'), ' ')
+        let l:cmd   = (a:use_rg ? 'rg -l ' : 'grep -l ')
+            \ . a:flags . ' ' . shellescape(a:term) . ' ' . l:fargs
+    endif
+    return systemlist(l:cmd)
+endfunction
+
+
+" ── negative filter ───────────────────────────────────────────────────────────
+" Finds which files DO contain term, then subtracts them from haystack.
+" Avoids grep -L / rg --files-without-match portability headaches entirely.
+function! s:FA_Exclude(term, haystack, flags, use_rg) abort
+    if empty(a:haystack) | return [] | endif
+    let l:fargs    = join(map(copy(a:haystack), 'shellescape(v:val)'), ' ')
+    let l:cmd      = (a:use_rg ? 'rg -l ' : 'grep -l ')
+        \ . a:flags . ' ' . shellescape(a:term) . ' ' . l:fargs
+    let l:contains = systemlist(l:cmd)
+    return filter(copy(a:haystack), 'index(l:contains, v:val) < 0')
+endfunction
+
+
+" ── first matching line in a file (quickfix preview) ─────────────────────────
+function! s:FA_FirstMatch(term, file, flags, use_rg) abort
+    let l:cmd = (a:use_rg
+        \ ? 'rg -n --no-heading --no-filename '
+        \ : 'grep -n ')
+        \ . a:flags . ' '
+        \ . shellescape(a:term) . ' ' . shellescape(a:file)
+        \ . ' 2>/dev/null | head -n 1'
+    return system(l:cmd)
+endfunction
+
+
+" ── main ──────────────────────────────────────────────────────────────────────
+function! FindFilesWithAllWords(raw) abort
+    let [l:opts, l:terms] = s:FA_Parse(a:raw)
+    let l:pos    = filter(copy(l:terms), '!v:val.negate')
+    let l:neg    = filter(copy(l:terms), ' v:val.negate')
+    let l:use_rg = executable('rg')
+    let l:flags  = s:FA_Flags(l:opts, l:use_rg)
+
+    if empty(l:pos) && empty(l:neg)
+        echo 'FindAll: please provide at least one search term.'
+        return
+    endif
+
+    " ── build initial candidate list ──────────────────────────────────────────
+    if empty(l:pos)
+        " Only negations: start from all files, then subtract
+        if l:use_rg
+            let l:gp    = !empty(l:opts.glob) ? ' -g ' . shellescape(l:opts.glob) : ''
+            let l:files = systemlist('rg --files' . l:gp . ' .')
+        elseif !empty(l:opts.glob)
+            let l:files = systemlist('find . -type f -name '
+                \ . shellescape(l:opts.glob) . ' 2>/dev/null')
+        else
+            let l:files = systemlist('find . -type f 2>/dev/null')
+        endif
+    else
+        " Seed from first positive term, intersect with the rest
+        let l:files = s:FA_Include(l:pos[0].term, [], l:flags, l:use_rg)
+        for l:tok in l:pos[1:]
+            if empty(l:files) | break | endif
+            let l:files = s:FA_Include(l:tok.term, l:files, l:flags, l:use_rg)
+        endfor
+    endif
+
+    " ── subtract negated terms ────────────────────────────────────────────────
+    for l:tok in l:neg
+        if empty(l:files) | break | endif
+        let l:files = s:FA_Exclude(l:tok.term, l:files, l:flags, l:use_rg)
+    endfor
+
+    " ── clean and validate paths ──────────────────────────────────────────────
+    call map   (l:files, 'substitute(v:val, "[[:cntrl:]]", "", "g")')
+    call filter(l:files, '!empty(v:val) && filereadable(v:val)')
+
+    if empty(l:files)
+        echo 'FindAll: no files matched.'
+        return
+    endif
+
+    " ── build quickfix entries ────────────────────────────────────────────────
+    let l:qf = []
+    for l:file in l:files
+        if !empty(l:pos)
+            " Preview: first line matching the last positive term
+            let l:raw = s:FA_FirstMatch(l:pos[-1].term, l:file, l:flags, l:use_rg)
+            let l:m   = matchlist(l:raw, '^\(\d\+\):\(.*\)')
+            if !empty(l:m)
+                call add(l:qf, {
+                    \ 'filename': l:file,
+                    \ 'lnum':     str2nr(l:m[1]),
+                    \ 'text':     '✔ ' . substitute(l:m[2], '^[ \t]*', '', '')
+                    \ })
+                continue
+            endif
+        endif
+        " Fallback: first line of file as context
+        let l:head = get(readfile(l:file, '', 1), 0, '')
+        call add(l:qf, {
+            \ 'filename': l:file,
+            \ 'lnum':     1,
+            \ 'text':     substitute(l:head, '^[ \t]*', '', '')
+            \ })
+    endfor
+
+    " ── open quickfix ─────────────────────────────────────────────────────────
+    call setqflist(l:qf)
+    copen
+
+    echo printf('FindAll: %d file(s)  [%s%s%s%s]  via %s',
+        \ len(l:qf),
+        \ l:opts.case_sensitive ? 'case-sensitive' : 'case-insensitive',
+        \ l:opts.whole_word     ? ', whole-word'   : '',
+        \ l:opts.fixed          ? ', fixed-string' : '',
+        \ !empty(l:opts.glob)   ? ', glob:'  . l:opts.glob : '',
+        \ l:use_rg              ? 'ripgrep'        : 'grep')
+endfunction
+
+" ── command ───────────────────────────────────────────────────────────────────
+command! -nargs=+ FindAll call FindFilesWithAllWords(<q-args>)
