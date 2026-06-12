@@ -47,8 +47,9 @@ PS1="$GREEN\u$NO_COLOUR:\W$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 alias bye='exit'
 alias swap='echo; echo "Breakdown:"; du -hs /private/var/vm/*; echo; echo "Total: "; du -hs /private/var/vm/;echo;'
 alias gg="git grep -C 3 $@"
-alias cdg="cd ~/go/src/gopkg.in/DataDog/dd-trace-go.v1"
-alias cdd="cd ~/go/src/github.com/DataDog"
+alias cdi="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias cdo="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
+alias cdop="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents && git commit -am 'updates' && git push origin main && cd -"
 
 ##
 # HISTORY AUCO-COMPLETE
